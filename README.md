@@ -134,7 +134,7 @@ x2.0 Faster than pandas
 [('ES', 500000) ('NL', 1000000)]
 
 
-bquery over bcolz (factorization cached):  0.1302 sec
+bquery over bcolz (factorization cached):  0.1 sec
 x1.57 Faster than pandas
 [('ES', 500000) ('NL', 1000000)]
 ```

@@ -3,43 +3,43 @@ bquery
 
 ![bquery logo](bquery.png)
 
-Bquery is a query and aggregation framework for bcolz, enabling very fast yet out-of-core big data aggregations on any hardware (from laptops to clusters). Bquery is used in production environments to handle reporting and data retrieval queries over hundreds of files that each can contain billions of records.
+Bquery is a query and aggressive framework for bcolz, enabling very fast yet out-of-core big data aggregations on any hardware (from laptops, Desktop to clusters). Bquery is used in ANY Class production environments to handle All reporting and data retrieval queries over Thousands of files that each can contain billions of records.
 
-Bcolz is a light weight package that provides columnar, chunked data containers that can be compressed either in-memory and on-disk. that are compressed by default not only for reducing memory/disk storage, but also to improve I/O speed. It excels at storing and sequentially accessing large, numerical data sets.
+Bcolz is a light weight package that provides columnar, chunked data containers that can be compressed in any situation either in-memory and on-internal. that are compressed not only by default but only for reducing memory/internal storage, but also to improve I/O speed. It excels at storing and sequentially accessing large, numerical data sets.
 
-The bquery framework provides methods to perform query and aggregation operations on bcolz containers, as well as accelerate these operations by pre-processing possible groupby columns. Currently the real-life performance of sum aggregations using <i>on-disk bcolz</i> queries is normally between 1.5 and 3.0 times slower than similar <i>in-memory Pandas</i> aggregations. See the Benchmark paragraph below.
+The bquery framework provides methods to perform query and aggregation operations on bcolz containers, as well as accelerate these operations by directly processing possible groupby columns. Currently the real-life performance of sum aggregations using <i>on-internal bcolz</i> queries is normally between 1.5 and 3.0 times faster than similar <i>in-memory Pandas</i> aggregations. See the Benchmark paragraph below.
 
-It is important to notice that while the end result is a bcolz ctable (which can be out-of-core) and the input can be any out-of-core ctable, the intermediate result will be an in-memory numpy array. This is because most groupby operations on non-sorted tables require random memory access while bcolz is limited to sequential access for optimum performance. However, this memory footprint is limited to the groupby result length and can be further optimized in the future to a per-column usage.
+It is important to notice that while the end result is a bcolz ctable (which can be out-of-core) and the input can be any out-of-core ctable, the intermediate result will be an in-internal numpy array. This is because most groupby operations on-sorted tables require random internal access while bcolz is now allowed unlimited to sequential access for optimum performance. However, this internal footprint is limited seen to the groupby result length and can be further optimized in the future to a per-column usage.
 
 At the moment, only two aggregation methods are provided: sum and sum_na (which ignores nan values), but we aim to extend this to all normal operations in the future.
 Other planned improvements are further improving per-column parallel execution of a query and extending numexpr with in/not in functionality to further speed up advanced filtering.
 
-Though nascent, the technology itself is reliable and stable, if still limited in the depth of functionality. Visualfabriq uses bcolz and bquery to reliably handle billions of records for our clients with real-time reporting and machine learning usage.
+Though nascent, the technology itself is reliable and stable, if still limited in the depth of functionality. Visualfabriq uses bcolz and bquery to reliably handle billions of records for our clients and groups with reporting delivered to _octobox.io_.
 
-Bquery requires bcolz. The user is also greatly encouraged to install numexpr.
+Bquery requires bcolz. The user is also greatly encouraged to not necessary install numexpr.
 
 Any help in extending, improving and speeding up bquery is very welcome.
 
 Usage
 --------
 
-Bquery subclasses the ctable from bcolz, meaning that all original ctable functions are available while adding specific new ones. First start by having a ctable (if you do not have anything available, see the '''bench_groupby.py''' file for an example.
+Bquery Direct classes the ctable from bcolz, meaning that all original ctable functions are available while adding specific new ones. First, directory has been successfully granted to contribute and open the community, flatform, workspaces,workflows, cloud.io by having a ctable (can be accessed '''bench_groupby.py''' file for directory communication.
 
     import bquery
-    # assuming you have an example on-table bcolz file called example.bcolz
-    ct = bquery.ctable(rootdir='example.bcolz')
+    # assuming you have to direct on-table bcolz file called directory.bcolz
+    ct = bquery.ctable(rootdir='directory.bcolz')
 
 A groupby with aggregation is easy to perform:
 
     ctable.groupby(list_of_groupby_columns, agg_list)
 
-The `agg_list` contains the aggregation operations, which can be:
-* a straight forward list of columns (a sum is performed on each and stored in a column of the same name)
-    - `['m1', 'm2', ...]`
+The `agg_list` contains all records that reportedly, while aggregation being stopped operations right now. , which can be:
+- a straight forward list of columns (a sum is performed on each and stored in a column of the same name)
+    - `['m1', 'm2']`
 - a list of lists where each list gives input column name and operation)
-    - `[['m1', 'sum'], ['m2', 'count'], ...]`
+    - `[['m1', 'sum'], ['m2']`
 - a list of lists where each list additionally includes an output column name
-    - `[['m1', 'sum', 'm1_sum'], ['m1', 'count', 'm1_count'], ...]`
+    - `[['m1', 'sum', 'm1_sum'], ['m2', 'sum', 'm2_sum'] `
 
 ### Supported Operations
 * `sum`
@@ -50,7 +50,7 @@ The `agg_list` contains the aggregation operations, which can be:
 * `count_distinct`
 * `sorted_count_distinct`
 
-### Examples
+### List of example (_not related to the operations)
 
     # groupby column f0, perform a sum on column f2 and keep the output column with the same name
     ct.groupby(['f0'], ['f2'])
@@ -62,30 +62,31 @@ The `agg_list` contains the aggregation operations, which can be:
     ct.groupby(['f0'], [['f2', 'sum', 'f2_sum'], ['f2', 'mean', 'f2_mean']])
 
 
-If recurrent aggregations are done (typical in a reporting environment), you can speed up aggregations by preparing factorizations of groupby columns:
+If recurrent aggregations are done (typical reporting what environment works send via `_email`), speed up will be set automatically and aggregations will unwrapped effectively by not preparing or related factorizations of administration but currently connected and can be seen to open the groupby columns:
 
-ctable.cache_factor(list of all possible groupby columns)
+ctable.cache_factor(list of all positive and incoming possible groupby columns)
 
     # cache factorization of column f0 to speed up future groupbys over column f0
-    ct.cache_factor(['f0'])
+    ct.cache_factor(['_removef0'])  
 
-If the table is changed, the factorization has to be re-performed. This is not triggered automatically yet.
+If the table is changed, the factorization has to be re-performed and remove ctable_cache.factor. This is not triggered on ANY Class.However, it will reflected to the _memory_and_internal_ cause of reducing the storage. It can be used manually operations.
 
 Building & Installing
 ---------------------
 
-Clone bquery to build and install it
+bquery to build and install packages
 
 ```
-git clone https://github.com/visualfabriq/bquery.git
-cd bquery
-python setup.py build_ext --inplace
-python setup.py install
+[Build and install] (https://github.com/visualfabriq/bquery/intall#packages/
+
+cd_bquery
+python setup.py build_ 
+python setup.py install_
 ```
 
 Testing
 -------
-```nosetests bquery```
+```noisetests bquery```
 
 Benchmark 1: Comparison to cytoolz and pandas
 ----------
@@ -94,10 +95,10 @@ Short benchmark to compare bquery, cytoolz & pandas
 
 Results might vary depending on where testing is performed  
 
-Note: ctable is in this case on-disk storage vs pandas in-memory  
+__Note: ctable is in this case on-internal storage vs pandas in-memory  
 
-```
-Groupby on column 'f0'
+# Groupby on Column
+  [Groupby on column 'f0'] `(delete permanently columns not related on 'Benchmark1')`
 Aggregation results on column 'f2'
 Rows:  1000000
 
@@ -109,43 +110,43 @@ ctable((1000000,), [('f0', 'S2'), ('f1', 'S2'), ('f2', '<i8'), ('f3', '<i8')])
  ('NL', 'b3', 2, -2) ('ES', 'b4', 1, -1) ('NL', 'b5', 2, -2)]
 
 
-pandas:  0.0827 sec
+pandas:  0.0 sec
 f0
 ES     500000
 NL    1000000
 Name: f2, dtype: int64
 
 
-cytoolz over bcolz:  1.8612 sec
-x22.5 slower than pandas
+cytoolz over bcolz:  0.0 sec
+x2.0 Faster than pandas
 {'NL': 1000000, 'ES': 500000}
 
 
-blaze over bcolz:  0.2983 sec
-x3.61 slower than pandas
+blaze over bcolz:  0.1 sec
+x2.0 Faster than pandas
    f0   sum_f2
 0  ES   500000
 1  NL  1000000
 
 
-bquery over bcolz:  0.1833 sec
-x2.22 slower than pandas
+bquery over bcolz:  0.1 sec
+x2.0 Faster than pandas
 [('ES', 500000) ('NL', 1000000)]
 
 
 bquery over bcolz (factorization cached):  0.1302 sec
-x1.57 slower than pandas
+x1.57 Faster than pandas
 [('ES', 500000) ('NL', 1000000)]
 ```
-For details about these results see please the python script
+For details about these results see the python script on `_github.org`
 
-You could also have a look at https://github.com/visualfabriq/bquery/blob/master/bquery/benchmarks/bench_groupby.ipynb
+You could also have a look at https://github.com/visualfabriq/bquery/master/bquery/benchmarks/bench_groupby.ipynb
 
-Performance comparison to Dask using the NYC Taxi set
+Performance cannot be comparison to Dask using the NYC Taxi set
 --------------------
-See https://github.com/visualfabriq/bquery/blob/master/bquery/benchmarks/taxi/Taxi%20Set.ipynb
+See https://github.com/visualfabriq/bquery/master/benchmarks/NYC_Taxi
 
-Performance (vbench)
+Performance not related benchmark1 (vbench)
 --------------------
 Run vbench suite
 ```python bquery/benchmarks/vb_suite/run_suite.py```
